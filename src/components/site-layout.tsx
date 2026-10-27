@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Menu, X, Waves } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logoMark from "@/assets/litoral-em-xeque-logo.png.asset.json";
 
 const nav = [
   { to: "/quem-somos", label: "Quem somos" },
@@ -11,10 +12,14 @@ const nav = [
 
 export function Logo() {
   return (
-    <Link to="/" className="flex items-center gap-2 font-display text-lg font-extrabold">
-      <span className="grid size-9 place-items-center rounded-full bg-mar text-primary-foreground">
-        <Waves className="size-5" />
-      </span>
+    <Link to="/" className="flex items-center gap-3 font-display text-lg font-extrabold">
+      <img
+        src={logoMark.url}
+        alt="Símbolo do Litoral em Xeque"
+        width={896}
+        height={503}
+        className="h-11 w-auto shrink-0"
+      />
       <span>
         Litoral em <span className="text-mata">Xeque</span>
       </span>
