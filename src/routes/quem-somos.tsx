@@ -15,7 +15,7 @@ export const Route = createFileRoute("/quem-somos")({
   component: QuemSomos,
 });
 
-const equipe = ["Coordenação geral", "Pesquisa e checagem", "Comunicação", "Educação ambiental"];
+const equipe = ["Alunos do 3MIN", "Alunos do 3MAD", "Alunos do 3MAM"];
 
 function QuemSomos() {
   return (
@@ -48,7 +48,7 @@ function QuemSomos() {
       <section className="bg-areia">
         <div className="mx-auto max-w-6xl px-4 py-16">
           <h2 className="text-3xl font-extrabold">Equipe responsável</h2>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {equipe.map((e) => (
               <div key={e} className="rounded-2xl bg-card p-6">
                 <div className="size-14 rounded-full bg-mar" />

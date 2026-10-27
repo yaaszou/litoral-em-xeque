@@ -7,7 +7,6 @@ const nav = [
   { to: "/quem-somos", label: "Quem somos" },
   { to: "/entenda-o-problema", label: "Entenda o problema" },
   { to: "/greenwashing", label: "Desmascare o greenwashing" },
-  { to: "/acoes", label: "Ações e projetos" },
 ] as const;
 
 export function Logo() {
