@@ -10,7 +10,6 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as AcoesRouteImport } from './routes/acoes'
 import { Route as EntendaOProblemaRouteImport } from './routes/entenda-o-problema'
 import { Route as GreenwashingRouteImport } from './routes/greenwashing'
 import { Route as ParticipeRouteImport } from './routes/participe'
@@ -19,11 +18,6 @@ import { Route as QuemSomosRouteImport } from './routes/quem-somos'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AcoesRoute = AcoesRouteImport.update({
-  id: '/acoes',
-  path: '/acoes',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EntendaOProblemaRoute = EntendaOProblemaRouteImport.update({
@@ -49,7 +43,6 @@ const QuemSomosRoute = QuemSomosRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/acoes': typeof AcoesRoute
   '/entenda-o-problema': typeof EntendaOProblemaRoute
   '/greenwashing': typeof GreenwashingRoute
   '/participe': typeof ParticipeRoute
@@ -57,7 +50,6 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/acoes': typeof AcoesRoute
   '/entenda-o-problema': typeof EntendaOProblemaRoute
   '/greenwashing': typeof GreenwashingRoute
   '/participe': typeof ParticipeRoute
@@ -66,7 +58,6 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/acoes': typeof AcoesRoute
   '/entenda-o-problema': typeof EntendaOProblemaRoute
   '/greenwashing': typeof GreenwashingRoute
   '/participe': typeof ParticipeRoute
@@ -75,24 +66,13 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/'
-    | '/acoes'
-    | '/entenda-o-problema'
-    | '/greenwashing'
-    | '/participe'
-    | '/quem-somos'
+    '/' | '/entenda-o-problema' | '/greenwashing' | '/participe' | '/quem-somos'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/'
-    | '/acoes'
-    | '/entenda-o-problema'
-    | '/greenwashing'
-    | '/participe'
-    | '/quem-somos'
+    '/' | '/entenda-o-problema' | '/greenwashing' | '/participe' | '/quem-somos'
   id:
     | '__root__'
     | '/'
-    | '/acoes'
     | '/entenda-o-problema'
     | '/greenwashing'
     | '/participe'
@@ -101,7 +81,6 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AcoesRoute: typeof AcoesRoute
   EntendaOProblemaRoute: typeof EntendaOProblemaRoute
   GreenwashingRoute: typeof GreenwashingRoute
   ParticipeRoute: typeof ParticipeRoute
@@ -115,13 +94,6 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/acoes': {
-      id: '/acoes'
-      path: '/acoes'
-      fullPath: '/acoes'
-      preLoaderRoute: typeof AcoesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/entenda-o-problema': {
@@ -157,7 +129,6 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AcoesRoute: AcoesRoute,
   EntendaOProblemaRoute: EntendaOProblemaRoute,
   GreenwashingRoute: GreenwashingRoute,
   ParticipeRoute: ParticipeRoute,
