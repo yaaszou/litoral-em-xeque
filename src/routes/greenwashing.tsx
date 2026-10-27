@@ -54,7 +54,7 @@ function Quiz() {
         <Button className="mt-6" variant="mar" onClick={() => { setI(0); setPts(0); setSel(null); }}><RotateCcw /> Refazer</Button>
       </div>
     );
-  const q = quiz[i];
+  const q = quiz[i]!;
   return (
     <div className="rounded-3xl bg-card p-8 shadow-card">
       <p className="text-sm font-semibold text-muted-foreground">Pergunta {i + 1} de {quiz.length} · {pts} pontos</p>
@@ -91,7 +91,7 @@ function RadarCheck() {
         {radar.map((r, idx) => (
           <li key={r}>
             <label className="flex cursor-pointer items-start gap-3">
-              <Checkbox checked={checked[idx]} onCheckedChange={(v) => setChecked(checked.map((c, j) => (j === idx ? !!v : c)))} className="mt-0.5" />
+              <Checkbox checked={!!checked[idx]} onCheckedChange={(v) => setChecked(checked.map((c, j) => (j === idx ? !!v : c)))} className="mt-0.5" />
               <span>{r}</span>
             </label>
           </li>

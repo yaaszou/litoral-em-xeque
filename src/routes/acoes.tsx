@@ -46,7 +46,7 @@ function Acoes() {
   ]);
   const [nome, setNome] = useState("");
   const [texto, setTexto] = useState("");
-  const p = pontos[ativo];
+  const p = pontos[ativo]!;
   return (
     <>
       <PageHero eyebrow="Ações e projetos" title="Da informação para a areia." text="Campanhas, palestras, atividades escolares, mutirões e iniciativas comunitárias." />
