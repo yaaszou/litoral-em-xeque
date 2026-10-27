@@ -10,33 +10,102 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AcoesRouteImport } from './routes/acoes'
+import { Route as EntendaOProblemaRouteImport } from './routes/entenda-o-problema'
+import { Route as GreenwashingRouteImport } from './routes/greenwashing'
+import { Route as ParticipeRouteImport } from './routes/participe'
+import { Route as QuemSomosRouteImport } from './routes/quem-somos'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AcoesRoute = AcoesRouteImport.update({
+  id: '/acoes',
+  path: '/acoes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EntendaOProblemaRoute = EntendaOProblemaRouteImport.update({
+  id: '/entenda-o-problema',
+  path: '/entenda-o-problema',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GreenwashingRoute = GreenwashingRouteImport.update({
+  id: '/greenwashing',
+  path: '/greenwashing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ParticipeRoute = ParticipeRouteImport.update({
+  id: '/participe',
+  path: '/participe',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuemSomosRoute = QuemSomosRouteImport.update({
+  id: '/quem-somos',
+  path: '/quem-somos',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/acoes': typeof AcoesRoute
+  '/entenda-o-problema': typeof EntendaOProblemaRoute
+  '/greenwashing': typeof GreenwashingRoute
+  '/participe': typeof ParticipeRoute
+  '/quem-somos': typeof QuemSomosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/acoes': typeof AcoesRoute
+  '/entenda-o-problema': typeof EntendaOProblemaRoute
+  '/greenwashing': typeof GreenwashingRoute
+  '/participe': typeof ParticipeRoute
+  '/quem-somos': typeof QuemSomosRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/acoes': typeof AcoesRoute
+  '/entenda-o-problema': typeof EntendaOProblemaRoute
+  '/greenwashing': typeof GreenwashingRoute
+  '/participe': typeof ParticipeRoute
+  '/quem-somos': typeof QuemSomosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/acoes'
+    | '/entenda-o-problema'
+    | '/greenwashing'
+    | '/participe'
+    | '/quem-somos'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/acoes'
+    | '/entenda-o-problema'
+    | '/greenwashing'
+    | '/participe'
+    | '/quem-somos'
+  id:
+    | '__root__'
+    | '/'
+    | '/acoes'
+    | '/entenda-o-problema'
+    | '/greenwashing'
+    | '/participe'
+    | '/quem-somos'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AcoesRoute: typeof AcoesRoute
+  EntendaOProblemaRoute: typeof EntendaOProblemaRoute
+  GreenwashingRoute: typeof GreenwashingRoute
+  ParticipeRoute: typeof ParticipeRoute
+  QuemSomosRoute: typeof QuemSomosRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +117,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/acoes': {
+      id: '/acoes'
+      path: '/acoes'
+      fullPath: '/acoes'
+      preLoaderRoute: typeof AcoesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/entenda-o-problema': {
+      id: '/entenda-o-problema'
+      path: '/entenda-o-problema'
+      fullPath: '/entenda-o-problema'
+      preLoaderRoute: typeof EntendaOProblemaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/greenwashing': {
+      id: '/greenwashing'
+      path: '/greenwashing'
+      fullPath: '/greenwashing'
+      preLoaderRoute: typeof GreenwashingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/participe': {
+      id: '/participe'
+      path: '/participe'
+      fullPath: '/participe'
+      preLoaderRoute: typeof ParticipeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quem-somos': {
+      id: '/quem-somos'
+      path: '/quem-somos'
+      fullPath: '/quem-somos'
+      preLoaderRoute: typeof QuemSomosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AcoesRoute: AcoesRoute,
+  EntendaOProblemaRoute: EntendaOProblemaRoute,
+  GreenwashingRoute: GreenwashingRoute,
+  ParticipeRoute: ParticipeRoute,
+  QuemSomosRoute: QuemSomosRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
